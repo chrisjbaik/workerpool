@@ -100,7 +100,11 @@ function setupBrowserWorker(script, Worker) {
 function setupWorkerThreadWorker(script, WorkerThreads) {
   var worker = new WorkerThreads.Worker(script, {
     stdout: false, // automatically pipe worker.STDOUT to process.STDOUT
-    stderr: false  // automatically pipe worker.STDERR to process.STDERR
+    stderr: false,  // automatically pipe worker.STDERR to process.STDERR
+    resourceLimits: {
+      maxYoungGenerationSizeMb: 1024,
+      maxOldGenerationSizeMb: 8192
+    }
   });
   worker.isWorkerThread = true;
   // make the worker mimic a child_process
