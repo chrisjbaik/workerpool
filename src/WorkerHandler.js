@@ -102,7 +102,7 @@ function setupWorkerThreadWorker(script, WorkerThreads) {
     stdout: false, // automatically pipe worker.STDOUT to process.STDOUT
     stderr: false,  // automatically pipe worker.STDERR to process.STDERR
     resourceLimits: {
-      maxYoungGenerationSizeMb: 1024,
+      maxYoungGenerationSizeMb: 96,
       maxOldGenerationSizeMb: 8192
     }
   });
